@@ -4,7 +4,7 @@ services:
     - docker
 
 before_install:
-    - docker build -e CI=true pkdocker/docker-react -f Dockerfile.dev .
+    - docker build pkdocker/docker-react -f Dockerfile.dev .
 
 script:
-    - docker run pkdocker/docker-react npm run test -- --coverage
+    - docker run -e CI=true pkdocker/docker-react npm run test -- --coverage
